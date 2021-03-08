@@ -1,0 +1,36 @@
+The idea is to help traders to speculate on the market by chosing a strategy between Scalping and Trend Following. 
+On the first screen ( no need to login or identification ) the user can select if he wants to start a new analysis. After that the system will ask what strategy he wants to use [Scalping][Trend Following].
+The next screen will tell the user which are the most 'tradable' pairs accordint to the strategy and the direction of the market according to the strategy selected. 
+
+In order to achieve sucha a results not only we wuld need reliable data but also we need to develop the two strategies that the scanner will use to select the most tradable pair.
+
+Strategy 1 - Scalping
+
+Scalping will advice the user to look for ( long/short ) opportunities on the market on the 1m timeframe. The user is responsible for the entry signal, the system doesn't give you an entry signal. The system will just give you an edge in terms of probability. Substancially what the scanner will do is to analyze the most probable direction of the market on the 1m timeframe, with that being said it won't advise you on when to buy/sell/take profit/stop loss. 
+
+The direction of the market adviced by Strategy one is based on moving averages on the 1m/5m/15m/30m/1h timeframes. 
+
+1h timeframe = crossover(10/100)
+
+30m timeframe = crossover(21/50)
+
+15m timeframe = crossover(9/18)
+
+5m timeframe = crossover(9/18)
+
+1m timeframe = crossover(9/18)
+
+The scanner will return the instruments that are all aligned in the same direction.
+
+I.e 
+If EURUSD has: 
+	-1h SMA10>SMA100 && 30m SMA21>SMA50 && ... && 1m SMA9>SMA18 then Return Buy
+If EURUSD has: 
+	-1h SMA10<SMA100 && 30m SMA21<SMA50 && ... && 1m SMA9<SMA18 then Return Buy
+If EURUSD has: 
+	-1h SMA10<SMA100 && 30m SMA21>SMA50 && ... && 1m SMA9<SMA18 then Return Null
+
+The scanner needs to scan all the instruments every minute. ( Potential problem, how do we handle the amount of data to be loaded? It is quite a lot, in python I remember there was a way to 'package' 100 Api requests in 1, because if you send 1000 api requests with the price of 1m chart every 1m it's gonna be a mess.. it won't run)
+
+Strategy 2 is basically the same as strategy 1 with the difference that it takes into consideration other timeframes and SMAs ( not important a this stage, they need to be tested a bit ) 
+
