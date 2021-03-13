@@ -6,8 +6,8 @@ import java.math.BigDecimal
 
 class SymbolTimeframeDirectionCalculator {
 
+    @Throws(NotEnoughDataException::class)
     fun calculateDirection(fastPeriod: Int, slowPeriod: Int, container: ResponseContainer): Direction {
-
 
         val items: List<IntradayItem> = container.mapOfItems.values.toList()
 
@@ -35,3 +35,5 @@ class SymbolTimeframeDirectionCalculator {
     }
 
 }
+
+

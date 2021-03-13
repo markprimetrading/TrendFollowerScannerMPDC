@@ -1,11 +1,9 @@
-import model.Direction
-import model.Timeframe
-import model.TradeAction
-import model.TimeframeContainer
+import model.*
 
 class SymbolDirectionCalculator(
     private val symbolTimeframeDirectionCalculator: SymbolTimeframeDirectionCalculator
 ) {
+    @Throws(NotEnoughDataException::class)
     fun getDirection(timeframeContainerList: List<TimeframeContainer>): TradeAction? {
 
         val timeframeDirections: MutableList<Direction> = ArrayList()
