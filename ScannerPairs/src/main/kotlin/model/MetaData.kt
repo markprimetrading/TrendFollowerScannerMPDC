@@ -1,3 +1,5 @@
+package model
+
 data class MetaData(
     val information: String,
     val fromSymbol: String,

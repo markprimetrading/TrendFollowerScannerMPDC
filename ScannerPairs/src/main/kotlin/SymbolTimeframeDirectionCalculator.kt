@@ -1,6 +1,10 @@
+import model.Direction
+import model.IntradayItem
+import model.NotEnoughDataException
+import model.ResponseContainer
 import java.math.BigDecimal
 
-class DirectionCalculator {
+class SymbolTimeframeDirectionCalculator {
 
     fun calculateDirection(fastPeriod: Int, slowPeriod: Int, container: ResponseContainer): Direction {
 

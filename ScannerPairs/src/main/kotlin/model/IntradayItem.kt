@@ -1,3 +1,5 @@
+package model
+
 data class IntradayItem(
     val open: String,
     val high: String,

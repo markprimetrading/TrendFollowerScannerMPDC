@@ -1,4 +1,5 @@
 import junit.framework.Assert.assertEquals
+import model.*
 import org.junit.Test
 
 class CalculatorTest {
@@ -6,7 +7,7 @@ class CalculatorTest {
     @Test
     fun calculateDirectionUp() {
 
-        val directionCalculator = DirectionCalculator()
+        val directionCalculator = SymbolTimeframeDirectionCalculator()
         val myMetadata: MetaData = MetaData("test", "USD", "EUR", "01.01.2020 03:00:00", "5min", "Compact", "GMT")
 
         val myIntradayItem1: IntradayItem = IntradayItem("1.12323", "1.12343", "1.12313", "1.12500")
@@ -33,7 +34,7 @@ class CalculatorTest {
     @Test
     fun calculateDirectionDown() {
 
-        val directionCalculator = DirectionCalculator()
+        val directionCalculator = SymbolTimeframeDirectionCalculator()
         val myMetadata: MetaData = MetaData("test", "USD", "EUR", "01.01.2020 03:00:00", "5min", "Compact", "GMT")
 
         val myIntradayItem1: IntradayItem = IntradayItem("1.10492", "1.12343", "1.12313", "1.12100")
@@ -59,7 +60,7 @@ class CalculatorTest {
     @Test(expected = NotEnoughDataException::class)
     fun calculateDirectionNotEnoughData() {
 
-        val directionCalculator = DirectionCalculator()
+        val directionCalculator = SymbolTimeframeDirectionCalculator()
         val myMetadata: MetaData = MetaData("test", "USD", "EUR", "01.01.2020 03:00:00", "5min", "Compact", "GMT")
 
         val myIntradayItem1: IntradayItem = IntradayItem("1.12323", "1.12343", "1.12313", "1.12328")
@@ -85,4 +86,3 @@ class CalculatorTest {
 
 }
 
-class NotEnoughDataException(message: String) : Exception(message)
