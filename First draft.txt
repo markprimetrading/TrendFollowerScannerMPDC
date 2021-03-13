@@ -1,3 +1,5 @@
+jdjskjd
+
 The idea is to help traders to speculate on the market by chosing a strategy between Scalping and Trend Following. 
 On the first screen ( no need to login or identification ) the user can select if he wants to start a new analysis. After that the system will ask what strategy he wants to use [Scalping][Trend Following].
 The next screen will tell the user which are the most 'tradable' pairs accordint to the strategy and the direction of the market according to the strategy selected. 
